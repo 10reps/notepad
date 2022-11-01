@@ -1,78 +1,91 @@
 * {
     box-sizing: border-box;
     margin: 0;
-    background-color: #F8EEE2;
 }
 
-.top {
-    margin-top: 63px;
-    margin-left: 148px;
+.all {
+    width: 400px;
+    border-radius: 20px;
+    margin: auto;
+    background-color: #F8EEE2;
+    -webkit-box-shadow: 10px 10px 14px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 10px 10px 14px 0px rgba(0,0,0,0.75);
+    box-shadow: 10px 10px 14px 0px rgba(0,0,0,0.75);
+}
+
+header {
+    height: 86px;
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+.title {
     font-family: 'Titan One', cursive;
     font-size: 20px;
     color: #403B36;
 }
 
-li {
+main {
+    display: flex;
+    justify-content: center;
+    height: 460px;
+}
+
+.items {
+    padding: 0;
     height: 50px;
     width: 319px;
     border-radius: 12px;
-    font-size: 20px;
-    line-height: 2.7;
-    letter-spacing: 0.04em;
-    text-indent: 20px;
-    font-family: 'Nunito', sans-serif;
     background-color: #FFFDFA;
+}
+
+.item__row {
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+    width: 290px;
+    margin-top: 12px;
+    margin-left: 18px;
+}
+
+.item__name {
+    font-size: 20px;
+    font-family: 'Nunito', sans-serif;
     color: #595550;
 }
 
-main {
-    position: relative;
+.trashBtn {
+    display: block;
+    border: none;
+    background-color: #FFFDFA;
 }
 
-.list {
+footer {
+    height: 150px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-around;
-    padding: 0;
-    height: 410px;
-    margin-top: 40px;
-    list-style: none;
-}
-
-li {
-    position: relative;
-}
-
-.trash {
-    position: absolute;
-    top: 15px;
-    right: 10px;
-    width: 20px;
-    height: 20px;
 }
 
 .write {
-    position: absolute;
-    bottom: 140px;
+    margin-bottom: 5px;
     height: 30px;
-    width: 300px;
-    margin-left: 37px;
+    width: 310px;
     text-indent: 8px;
     border-radius: 8px;
     border: none;
     background-color: #FFFDFA;
 }
 
-.add-button {
-    bottom: 0;
+.add__button {
+    display: block;
     padding: 0;
     width: 319px;
     height: 74px;
     border-radius: 12px;
     border: 0;
-    margin-left: 28px;
-    margin-bottom: 28px;
     font-size: 20px;
     font-family: 'Nunito', sans-serif;
     background-color: #D9614C;
