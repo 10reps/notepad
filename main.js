@@ -1,15 +1,15 @@
 const items = document.querySelector('.items');
-const write = document.querySelector('.write');
+const input = document.querySelector('.write');
 const addBtn = document.querySelector('.add__button');
 
 function onAdd() {
-    const text = write.value;
+    const text = input.value;
 
     const item = createItem(text);
 
     items.appendChild(item);
 
-}
+};
 
 
 function createItem(text) {
@@ -17,10 +17,11 @@ function createItem(text) {
     const itemRow = document.createElement('li');
     itemRow.setAttribute('class','item__row');
 
-    const name = document.createElementNS('div');
+    const name = document.createElement('div');
     name.setAttribute('class', 'item__name');
+    name.innerText = text;
 
-    const deleteBtn = document.createElementNS('button');
+    const deleteBtn = document.createElement('button');
     deleteBtn.setAttribute('class', 'trashBtn');
 
     deleteBtn.innerHTML = '<i class="fa-solid fa-trash-can"></i>';
@@ -33,10 +34,9 @@ function createItem(text) {
     itemRow.appendChild(deleteBtn);
 
     return itemRow;
-}
+};
 
 
-addBtn.addEventListener('click', event => {
-    console.log('dfdf');
+addBtn.addEventListener('click', () => {
     onAdd();
 });
