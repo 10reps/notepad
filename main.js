@@ -1,6 +1,8 @@
 const items = document.querySelector('.items');
+const form = document.querySelector('.new-form');
 const input = document.querySelector('.write');
 const addBtn = document.querySelector('.add__button');
+
 
 function onAdd() {
     const text = input.value;
@@ -9,34 +11,41 @@ function onAdd() {
 
     items.appendChild(item);
 
+    item.scrollIntoView({block: 'center'});
+
+    input.value = '';
+    input.focus();
 };
 
+
+let id = 0;
 
 function createItem(text) {
 
     const itemRow = document.createElement('li');
-    itemRow.setAttribute('class','item__row');
+    itemRow.setAttribute('class', 'item__row');
+    itemRow.setAttribute('data-id', id);
 
-    const name = document.createElement('div');
-    name.setAttribute('class', 'item__name');
-    name.innerText = text;
-
-    const deleteBtn = document.createElement('button');
-    deleteBtn.setAttribute('class', 'trashBtn');
-
-    deleteBtn.innerHTML = '<i class="fa-solid fa-trash-can"></i>';
-    
-    deleteBtn.addEventListener('click', () => {
-        items.removeChild(itemRow);
-    });
-
-    itemRow.appendChild(name);
-    itemRow.appendChild(deleteBtn);
+    itemRow.innerHTML = `
+        <div class="item__name">${text}</div>
+        <button class="trashBtn">
+            <i class="fa-solid fa-trash-can" data-id=${id}></i>
+        </button>
+    `;
 
     return itemRow;
 };
 
-
-addBtn.addEventListener('click', () => {
+form.addEventListener('submit', event => {
     onAdd();
+});
+
+
+items.addEventListener('click', event => {
+    const id = event.target.dataset.id;
+
+    if(id) {
+        const toBeDeleted = document.querySelector(`.item__row[data-id="${id}"]`);
+        toBeDeleted.remove();
+    };
 });
